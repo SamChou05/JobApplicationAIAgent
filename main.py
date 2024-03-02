@@ -9,16 +9,19 @@ from llama_index.core.agent import ReActAgent
 from llama_index.llms.openai import OpenAI
 #from resume_reader import resume_engine
 from job_listings_reader import job_listings_engine
-from resume_reader import get_resume_engine
+from resume_reader import download_pdf, get_resume_engine
+from email_engine import email_engine
 # from PyPDF2 import PdfReader
 
 load_dotenv()
 
 resume_url = input("Please enter the URL of your resume: ")
+resume_path = download_pdf(resume_url)
 
-resume_engine = get_resume_engine(resume_url, "resume index")
+resume_engine = get_resume_engine(resume_path, "resume index")
 tools = [
     tracker_engine,
+    email_engine,
     QueryEngineTool(
         query_engine=job_listings_engine,
         metadata=ToolMetadata(

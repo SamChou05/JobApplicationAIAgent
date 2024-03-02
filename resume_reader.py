@@ -47,9 +47,8 @@ def get_index(data, index_name):
     index = VectorStoreIndex.from_documents(data, show_progress=True)
     return index
 
-def get_resume_engine(resumeUrl, index_name):
-    pdf_path = download_pdf(resumeUrl)
-    resume_pdf = PDFReader().load_data(file=pdf_path)
+def get_resume_engine(resume_path, index_name):
+    resume_pdf = PDFReader().load_data(file=resume_path)
     resume_index = get_index(resume_pdf, index_name)
     return resume_index.as_query_engine()
 #pdf_path = os.path.join("data", "resume.pdf")
