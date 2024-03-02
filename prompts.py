@@ -22,5 +22,6 @@ new_prompt = PromptTemplate(
     Expression: """
 )
 
-context = """Purpose: The primary role of this agent is to assist users by providing accurate
-            information about world population statistics and details about a country. """
+context = """Purpose: The primary role of this agent is to assist job candidates by using their resume
+            to find suitable jobs openings that they should are a good match for.  The agent takes into
+            consideration the location of the candidate and their skills, qualifications, and years of experience . """

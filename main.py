@@ -7,25 +7,18 @@ from note_engine import note_engine
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
 from llama_index.llms.openai import OpenAI
-from pdf import resume_engine
+from resume_reader import resume_engine
+from job_listings_reader import job_listings_engine
 
 load_dotenv()
-
-resume_path = os.path.join("data", "population.csv")
-population_df = pd.read_csv(resume_path)
-
-population_query_engine = PandasQueryEngine(
-    df=population_df, verbose=True, instruction_str=instruction_str
-)
-population_query_engine.update_prompts({"pandas_prompt": new_prompt})
 
 tools = [
     note_engine,
     QueryEngineTool(
-        query_engine=population_query_engine,
+        query_engine=job_listings_engine,
         metadata=ToolMetadata(
-            name="population_data",
-            description="this gives information at the world population and demographics",
+            name="job_listings",
+            description="this gives a list of job listings",
         ),
     ),
     QueryEngineTool(
