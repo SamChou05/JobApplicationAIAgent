@@ -17,5 +17,5 @@ def update_tracker(note):
 tracker_engine = FunctionTool.from_defaults(
     fn=update_tracker,
     name="application_tracker",
-    description="this tool adds and modifies statuses on a job application tracker",
+    description="this tool adds and modifies application statuses on a job application tracker",
 )

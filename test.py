@@ -1,7 +1,7 @@
 import pandas as pd
 import random
 
-# Expanded options for each column
+# Expanded options for each column with added companies
 titles = [
     'Software Engineer', 'Data Scientist', 'Product Manager', 'Graphic Designer', 'Systems Administrator',
     'Cybersecurity Analyst', 'Network Engineer', 'UI/UX Designer', 'Cloud Solutions Architect', 'Technical Writer',
@@ -47,10 +47,18 @@ locations = [
     'San Diego, CA', 'Portland, OR', 'Miami, FL', 'Washington, DC', 'Minneapolis, MN',
     'Raleigh, NC', 'Detroit, MI', 'Nashville, TN', 'Salt Lake City, UT', 'Orlando, FL'
 ]
+companies = [
+    'Tech Innovations Inc.', 'Global Solutions Ltd.', 'NextGen Technologies', 'Creative Minds LLC',
+    'GreenTech Solutions', 'Data Analytics Corp.', 'Cloud Services International', 'Digital Dynamics',
+    'EcoTech Enterprises', 'Future Horizons', 'IntelliDesign Studios', 'Quantum Computing Inc.',
+    'Virtual Reality Ventures', 'AI Pioneers', 'CyberSecurity Pros', 'Blockchain Basics LLC', 'Smart Solutions',
+    'Renewable Tech Co.', 'Software Giants', 'Tech Trailblazers Inc.'
+]
 
 # Generate a large number of job listings
-num_listings = 1000  # You can adjust this number as needed
+num_listings = 1000  # Adjust as needed
 data = {
+    'company': [random.choice(companies) for _ in range(num_listings)],
     'job title': [random.choice(titles) for _ in range(num_listings)],
     'job description': [random.choice(descriptions) for _ in range(num_listings)],
     'requirements': [random.choice(requirements) for _ in range(num_listings)],
